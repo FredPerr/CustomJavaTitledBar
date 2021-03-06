@@ -11,7 +11,7 @@ import java.io.*;
 public class TBDemo {
 
     public TBDemo() throws IOException {
-        TBJFrame frame = new TBJFrame("test", WindowFrameType.NORMAL, new DarkTBTheme());
+        TBJFrame frame = new TBJFrame("TBDemo", WindowFrameType.NORMAL, new DarkTBTheme());
         InputStream fis = getClass().getResourceAsStream("/test.png");
         frame.iconPanel.setIcon(ImageIO.read(fis));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
