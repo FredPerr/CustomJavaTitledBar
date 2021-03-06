@@ -8,9 +8,9 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.*;
 
-public class Main {
+public class TBDemo {
 
-    public Main() throws IOException {
+    public TBDemo() throws IOException {
         TBJFrame frame = new TBJFrame("test", WindowFrameType.NORMAL, new DarkTBTheme());
         InputStream fis = getClass().getResourceAsStream("/test.png");
         frame.iconPanel.setIcon(ImageIO.read(fis));
@@ -22,7 +22,7 @@ public class Main {
 
     public static void main(String[] args){
         try {
-            new Main();
+            new TBDemo();
         } catch (IOException e){
             e.printStackTrace();
             System.exit(-1);

@@ -15,7 +15,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ca.fredperr.customtitlebar.Main</mainClass>
+                            <mainClass>ca.fredperr.customtitlebar.TBDemo</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
