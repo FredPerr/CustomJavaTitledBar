@@ -13,7 +13,7 @@ public abstract class TBControlButton extends JButton implements MouseListener {
 
     protected TBControlButton(TBJFrame frame){
         this.frame = frame;
-        setBackground(frame.theme.getControlButtonBackground());
+        setBackground(frame.getTheme().getControlButtonBackground());
         setOpaque(false);
         addMouseListener(this);
         setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
@@ -46,19 +46,19 @@ public abstract class TBControlButton extends JButton implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        setBackground(frame.theme.getControlButtonHoverBackground());
+        setBackground(frame.getTheme().getControlButtonHoverBackground());
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) { setBackground(frame.theme.getControlButtonHoverBackground());}
+    public void mouseReleased(MouseEvent e) { setBackground(frame.getTheme().getControlButtonHoverBackground());}
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        setBackground(frame.theme.getControlButtonHoverBackground());
+        setBackground(frame.getTheme().getControlButtonHoverBackground());
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        setBackground(frame.theme.getControlButtonBackground());
+        setBackground(frame.getTheme().getControlButtonBackground());
     }
 }

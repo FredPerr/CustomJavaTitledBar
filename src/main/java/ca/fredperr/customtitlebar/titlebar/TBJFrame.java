@@ -22,10 +22,10 @@ public class TBJFrame extends JFrame {
     final WindowFrameType windowFrameType;
     private JPanel titleBarPane, customContentContainer, frameContentPane, iconContainer, controlContainer;
     private TBIconPanel iconPanel;
-    public TBRestoreButton restoreButton;
-    public TBMinimizeButton minimizeButton;
-    public TBCloseButton closeButton;
-    public TBTheme theme;
+    private TBRestoreButton restoreButton;
+    private TBMinimizeButton minimizeButton;
+    private TBCloseButton closeButton;
+    private TBTheme theme;
 
     public TBJFrame(String title, WindowFrameType windowFrameType, TBTheme theme, int logoSize){
         super(title);
@@ -170,4 +170,29 @@ public class TBJFrame extends JFrame {
     public TBTheme getTheme(){
         return this.theme;
     }
+
+    /**
+     * @return the instance of the button that closes the window.
+     *          This button should not be null.
+     */
+    public TBCloseButton getCloseButton(){
+        return this.closeButton;
+    }
+
+    /**
+     * @return the instance of the minimize button.
+     *          This button can be null if the type of window does not support it.
+     */
+    public TBMinimizeButton getMinimizeButton(){
+        return this.minimizeButton;
+    }
+
+    /**
+     * @return the instance of the restore button.
+     *          This button can be null if the type of the window does not support it.
+     */
+    public TBRestoreButton getRestoreButton(){
+        return this.restoreButton;
+    }
+
 }

@@ -35,21 +35,21 @@ public class TBCloseButton extends TBControlButton {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        setBackground(frame.theme.getCloseButtonHoverBackground());
+        setBackground(frame.getTheme().getCloseButtonHoverBackground());
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) { setBackground(frame.theme.getCloseButtonHoverBackground());}
+    public void mouseReleased(MouseEvent e) { setBackground(frame.getTheme().getCloseButtonHoverBackground());}
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        setBackground(frame.theme.getCloseButtonHoverBackground());
+        setBackground(frame.getTheme().getCloseButtonHoverBackground());
         hover = true;
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        setBackground(frame.theme.getControlButtonBackground());
+        setBackground(frame.getTheme().getControlButtonBackground());
         hover = false;
     }
 }

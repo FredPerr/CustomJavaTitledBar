@@ -27,8 +27,8 @@ public class TBDemo {
 
         UIManager.put("Menu.selectionBackground", new Color(177, 96, 96));
         UIManager.put("Menu.selectionForeground", Color.lightGray);
-        UIManager.put("MenuBar.background", frame.theme.getFrameBackground());
-        UIManager.put("Menu.background", frame.theme.getFrameBackground());
+        UIManager.put("MenuBar.background", frame.getTheme().getFrameBackground());
+        UIManager.put("Menu.background", frame.getTheme().getFrameBackground());
         UIManager.put("Menu.foreground", Color.lightGray);
         UIManager.put("Menu.border", BorderFactory.createEmptyBorder(5,2,5,2));
         UIManager.put("Menu.font", font);
