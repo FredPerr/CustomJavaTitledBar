@@ -1,16 +1,10 @@
 # Custom Java Titled Bar
 A customizable title bar API compatible with the native functions for Java Swing applications
 
-## Layout
-
-## Comparison
-
 ## Installation
-
-####Maven
-This repository is not uploaded to maven yet... (See _Local Integration_ below)
 ####Local Integration
 To implement the files of this project into your own project, you can simply clone this repository and add the package `titlebar` into your source files.
+This project is not accessible via Maven yet...
 
 ## Usage
 
@@ -26,9 +20,9 @@ We now add the base attributes of our frame as a `JFrame` would require:
 ```
 It is possible to add an icon on the title bar with the following code:
 ```java
-		// Load the image
+	// Load the image
         InputStream fis = getClass().getResourceAsStream("/test.png");
-		// Set the icon
+	// Set the icon
         frame.iconPanel.setIcon(ImageIO.read(fis));
 ```
 
@@ -37,6 +31,10 @@ As usual, we pack and display the frame with the following lines:
 		frame.pack();
 		frame.setVisible(true);
 ```
+
+## Layout
+The components and the layout can be edited directly in the code of this repository, but by default the following layout is used:
+![Demo Frame with layout rules](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "layout")
 
 ## Theme
 This project supports theme creation for the any newly created `TBJFrame`.
