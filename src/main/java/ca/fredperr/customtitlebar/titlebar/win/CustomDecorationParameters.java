@@ -1,4 +1,4 @@
-package ca.fredperr.customtitlebar.win;
+package ca.fredperr.customtitlebar.titlebar.win;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

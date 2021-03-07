@@ -1,4 +1,4 @@
-package ca.fredperr.customtitlebar.win;
+package ca.fredperr.customtitlebar.titlebar.win;
 
 import com.sun.jna.Native;
 import com.sun.jna.platform.win32.BaseTSD;

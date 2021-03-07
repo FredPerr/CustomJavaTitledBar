@@ -1,7 +1,7 @@
 package ca.fredperr.customtitlebar.titlebar.controls;
 
 import ca.fredperr.customtitlebar.titlebar.TBJFrame;
-import ca.fredperr.customtitlebar.win.CustomDecorationParameters;
+import ca.fredperr.customtitlebar.titlebar.win.CustomDecorationParameters;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;

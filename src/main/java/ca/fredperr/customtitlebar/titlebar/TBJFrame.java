@@ -5,9 +5,9 @@ import ca.fredperr.customtitlebar.titlebar.controls.TBMinimizeButton;
 import ca.fredperr.customtitlebar.titlebar.controls.TBRestoreButton;
 import ca.fredperr.customtitlebar.titlebar.icon.TBIconPanel;
 import ca.fredperr.customtitlebar.titlebar.theme.TBTheme;
-import ca.fredperr.customtitlebar.win.CustomDecorationParameters;
-import ca.fredperr.customtitlebar.win.CustomDecorationWindowProc;
-import ca.fredperr.customtitlebar.win.WindowFrameType;
+import ca.fredperr.customtitlebar.titlebar.win.CustomDecorationParameters;
+import ca.fredperr.customtitlebar.titlebar.win.CustomDecorationWindowProc;
+import ca.fredperr.customtitlebar.titlebar.win.WindowFrameType;
 import com.sun.jna.Native;
 import com.sun.jna.platform.win32.WinDef;
 
@@ -20,14 +20,14 @@ public class TBJFrame extends JFrame {
 
     final CustomDecorationWindowProc windowProcEx;
     final WindowFrameType windowFrameType;
-    public JPanel titleBarPane, customContentContainer, frameContentPane, iconContainer, controlContainer;
-    public TBIconPanel iconPanel;
+    private JPanel titleBarPane, customContentContainer, frameContentPane, iconContainer, controlContainer;
+    private TBIconPanel iconPanel;
     public TBRestoreButton restoreButton;
     public TBMinimizeButton minimizeButton;
     public TBCloseButton closeButton;
     public TBTheme theme;
 
-    public TBJFrame(String title, WindowFrameType windowFrameType, TBTheme theme){
+    public TBJFrame(String title, WindowFrameType windowFrameType, TBTheme theme, int logoSize){
         super(title);
         this.theme = theme;
         this.windowFrameType = windowFrameType;
@@ -48,11 +48,10 @@ public class TBJFrame extends JFrame {
             titleBarPane.setBackground(theme.getTitleBarColorBackground());
             titleBarPane.setBorder(BorderFactory.createMatteBorder(0,0 ,1,0, theme.getTitleBarBorder()));
             titleBarPane.setLayout(new BorderLayout());
-            //titleBarPane.setOpaque(false);
 
             iconContainer = new JPanel();
             iconContainer.setOpaque(false);
-            iconContainer.add(iconPanel = new TBIconPanel(null, 20));// TODO Check for correct layout
+            iconContainer.add(iconPanel = new TBIconPanel(null, logoSize));
 
 
             controlContainer = new JPanel();
@@ -110,15 +109,65 @@ public class TBJFrame extends JFrame {
         CustomDecorationParameters.setControlBoxWidth(controlContainer.getWidth() + 7);
     }
 
+    public void setTitleBarIcon(Image image){
+        iconPanel.setIcon(image);
+    }
+
     @Override
     public void setVisible(boolean b) {
         super.setVisible(b);
         windowProcEx.init(getHwnd());
     }
 
-    public WinDef.HWND getHwnd(){
+    @Override
+    public void pack() {
+        super.pack();
+        CustomDecorationParameters.setExtraLeftReservedWidth(customContentContainer.getWidth());
+    }
+
+    private WinDef.HWND getHwnd(){
         WinDef.HWND hwnd = new WinDef.HWND();
         hwnd.setPointer(Native.getComponentPointer(this));
         return hwnd;
+    }
+
+    /**
+     * @return the panel containing the icon of the title bar.
+     *         This panel is nested inside the iconContainer panel
+     */
+    public TBIconPanel getIconPanel(){
+        return this.iconPanel;
+    }
+
+
+    /**
+     * @return the area that is used to add any components such as JMenuBar or JButton for instance.
+     *          This zone is located right next to the icon container.
+     */
+    public JPanel getCustomAreaPanel(){
+        return this.customContentContainer;
+    }
+
+    /**
+     * @return the JPanel containing the control button(s), which are the minimize, restore and close buttons.
+     *          This component is located on the right of the title bar ny default.
+     */
+    public JPanel getControlContainer(){
+        return this.controlContainer;
+    }
+
+    /**
+     * @return the JPanel representing the title bar itself.
+     *          All the other components of the bar sit on this JPanel.
+     */
+    public JPanel getTitleBarPane(){
+        return this.titleBarPane;
+    }
+
+    /**
+     * @return The theme of the title bar/frame.
+     */
+    public TBTheme getTheme(){
+        return this.theme;
     }
 }

@@ -6,21 +6,21 @@ import java.awt.*;
 public class TBIconPanel extends JPanel {
 
     private Image image;
-    public int length;
+    public int size;
 
-    public TBIconPanel(Image image, int length){
-        this.length = length;
+    public TBIconPanel(Image image, int size){
+        this.size = size;
         setIcon(image);
     }
 
     public void setIcon(Image image){
         if (image != null){
-            this.image = image.getScaledInstance(length, length, Image.SCALE_DEFAULT);
-            Dimension size = new Dimension(length, length);
-            setPreferredSize(size);
-            setMinimumSize(size);
-            setMaximumSize(size);
-            setSize(size);
+            this.image = image.getScaledInstance(size, size, Image.SCALE_DEFAULT);
+            Dimension dim = new Dimension(size, size);
+            setPreferredSize(dim);
+            setMinimumSize(dim);
+            setMaximumSize(dim);
+            setSize(dim);
             setLayout(null);
         }
     }
