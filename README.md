@@ -44,9 +44,3 @@ The components and the layout can be edited directly in the code of this reposit
 ## Theme
 This project supports theme creation for the any newly created `TBJFrame`.
 A default dark theme is built-in the project, but anyone can build his own theme by extending the `TBTheme` interface and use it when creating the `TBJFrame`. Editing the project to its core always remains an option for more control over the user interface. 
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-[Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)
